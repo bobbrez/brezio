@@ -56,6 +56,26 @@ export const PostTitle = styled.h1`
   }
 `;
 
+export const PostSubTitle = styled.h1`
+  font-size: 20px;
+  font-weight: 700;
+  color: ${themeGet('colors.textColor', '#292929')};
+  line-height: 1.53;
+  margin-bottom: 10px;
+  @media (max-width: 1200px) {
+    font-size: 26px;
+    margin-bottom: 15px;
+  }
+  @media (max-width: 990px) {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  @media (max-width: 575px) {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+`;
+
 export const PostDate = styled.span`
   display: block;
   font-size: ${themeGet('fontSizes.3', '15')}px;

@@ -20,6 +20,8 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               fields {
                 slug
+                seriesTitle
+                seriesSlug
               }
               frontmatter {
                 title
@@ -42,11 +44,15 @@ exports.createPages = ({ graphql, actions }) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
 
+      console.log("🦑 post.node", post.node)
+
       createPage({
         path: post.node.fields.slug,
         component: blogPost,
         context: {
           slug: post.node.fields.slug,
+          seriesTitle: post.node.fields.seriesTitle,
+          seriesSlug: post.node.fields.seriesSlug,
           previous,
           next,
           tag: post.node.frontmatter.tags,
@@ -102,6 +108,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
+
+    console.log("🦑 node.frontmatter", node.frontmatter)
+
     if (typeof node.frontmatter.slug !== 'undefined') {
       createNodeField({
         node,
@@ -116,6 +125,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         value,
       })
     }
+
+    createNodeField({ node, name: 'seriesTitle', value: node.frontmatter.seriesTitle })
+    createNodeField({ node, name: 'seriesSlug', value: node.frontmatter.seriesSlug })
+    createNodeField({ node, name: 'seriesIndex', value: node.frontmatter.seriesIndex })
+    createNodeField({ node, name: 'seriesNext', value: node.frontmatter.seriesNext })
+    createNodeField({ node, name: 'seriesPrev', value: node.frontmatter.seriesPrev })
+    console.log("🦑 node", node)
   }
 }
 

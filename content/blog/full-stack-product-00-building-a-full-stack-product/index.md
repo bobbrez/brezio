@@ -1,11 +1,12 @@
 ---
-title: Building a Full Stack Product [Series]
-slug: 'building-a-full-stack-product'
+title: Building a Full Stack Product
+seriesTitle: Full Stack Product
+seriesSlug: full-stack-product-00-building-a-full-stack-product
+seriesNext: full-stack-product-01-environment-setup
 date: '2020-06-24'
 description: A tutorial series on how to build a full stack product end-to-end with React Native and Serverless
 tags: ['react', 'js', 'tutorials', 'react native', 'serverless']
 cover: './preview.png'
-seriesNext: starting-app-development
 ---
 
 Digital products have lots of moving parts that come together for a final result. This tutorial series will walk though one process for standing up all the different components necessary to launch a simple product which includes Apps (iOS and Android), a web presence, a backend (i.e. database, unified profiles, search, etc...) and more.

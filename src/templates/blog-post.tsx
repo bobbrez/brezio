@@ -43,6 +43,8 @@ const BlogPostTemplate = (props: any) => {
     shortname: process.env.DISQUS_NAME,
     config: { identifier: slug, title },
   };
+
+  console.log("🦑 edges", edges)
   return (
     <Layout>
       <SEO
@@ -52,6 +54,8 @@ const BlogPostTemplate = (props: any) => {
       <BlogPostDetailsWrapper>
         <PostDetails
           title={post.frontmatter.title}
+          seriesTitle={post.fields.seriesTitle}
+          seriesSlug={post.fields.seriesSlug}
           date={post.frontmatter.date}
           preview={
             post.frontmatter.cover == null
@@ -143,6 +147,8 @@ export const pageQuery = graphql`
       html
       fields {
         slug
+        seriesTitle
+        seriesSlug
       }
       frontmatter {
         title
@@ -171,6 +177,8 @@ export const pageQuery = graphql`
         node {
           fields {
             slug
+            seriesTitle
+            seriesSlug
           }
           frontmatter {
             title

@@ -5,6 +5,7 @@ import _ from 'lodash';
 import {
   PostDetailsWrapper,
   PostTitle,
+  PostSubTitle,
   PostDate,
   PostPreview,
   PostDescriptionWrapper,
@@ -12,8 +13,15 @@ import {
   PostTags,
 } from './post-details.style';
 
+type SeriesTitleProps = {
+  title: string;
+  slug?: string;
+};
+
 type PostDetailsProps = {
   title: string;
+  seriesTitle?: string;
+  seriesSlug?: string;
   date?: string;
   preview?: any;
   description: any;
@@ -22,8 +30,18 @@ type PostDetailsProps = {
   imagePosition?: 'left' | 'top';
 };
 
+const SeriesTitle: React.FunctionComponent<SeriesTitleProps> = ({
+  title,
+  slug,
+}) => {
+  if(!title) return <></>
+  return <PostSubTitle><Link to={`/${slug}`}>{title} Series</Link></PostSubTitle>
+}
+
 const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
   title,
+  seriesTitle,
+  seriesSlug,
   date,
   preview,
   description,
@@ -33,6 +51,8 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
   ...props
 }) => {
   const addClass: string[] = ['post_details'];
+
+  console.log("🦑 seriesTitle", seriesSlug)
 
   if (imagePosition == 'left') {
     addClass.push('image_left');
@@ -59,6 +79,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
       {imagePosition == 'top' ? (
         <>
           <PostTitle>{title}</PostTitle>
+          <SeriesTitle title={seriesTitle} slug={seriesSlug} />
           <PostDate>{date}</PostDate>
         </>
       ) : (
@@ -80,6 +101,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
         {imagePosition == 'left' ? (
           <>
             <PostTitle>{title}</PostTitle>
+            <SeriesTitle title={seriesTitle} slug={seriesSlug} />
             <PostDate>{date}</PostDate>
           </>
         ) : (
