@@ -10,6 +10,7 @@ import {
   PostPreview,
   PostDescriptionWrapper,
   PostDescription,
+  SeriesDescriptionWrapper,
   PostTags,
 } from './post-details.style';
 
@@ -47,10 +48,24 @@ const SeriesDescription: React.FunctionComponent<SeriesTitleProps> = ({
   slug,
   index,
 }) => {
-  console.log("🦑 index", index);
   if(!title) return <></>
-  if(index === 0) return <blockquote>This post is the start of the <Link to={`/${slug}`}>{title} Series</Link>.</blockquote>
-  return <blockquote>This post is {index}{nth(index)} in a the <Link to={`/${slug}`}>{title} Series</Link>. If you just landed here, it might be worthwhile checking out the series overview.</blockquote>
+
+  let contents;
+  if(index === 0) {
+    contents = <>This post is the start of the <Link to={`/${slug}`}>{title} Series</Link>.</>
+  } else {
+    contents = <>This post is {index}{nth(index)} in a the <Link to={`/${slug}`}>{title} Series</Link>. If you just landed here, it might be worthwhile checking out the series overview.</>
+  }
+  
+  return (
+    <SeriesDescriptionWrapper>
+      <blockquote>
+        {contents}
+      </blockquote>
+    </SeriesDescriptionWrapper>
+  );
+  
+  return <p><blockquote></blockquote></p>
 }
 
 
@@ -68,8 +83,6 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
   ...props
 }) => {
   const addClass: string[] = ['post_details'];
-
-  console.log("🦑 seriesIndex", seriesIndex)
 
   if (imagePosition == 'left') {
     addClass.push('image_left');

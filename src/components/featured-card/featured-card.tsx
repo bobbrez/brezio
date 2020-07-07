@@ -7,6 +7,7 @@ import {
   PostPreview,
   PostDetails,
   PostTitle,
+  PostSubTitle,
   PostTags,
   PostMeta,
   ReadMore,
@@ -16,6 +17,8 @@ import {
 interface FeaturedCardProps {
   image?: any;
   title: string;
+  seriesTitle?: string;
+  seriesIndex?: number;
   description?: string;
   url: string;
   tags?: [];
@@ -27,6 +30,8 @@ interface FeaturedCardProps {
 const FeaturedCard: React.FunctionComponent<FeaturedCardProps> = ({
   image,
   title,
+  seriesTitle,
+  seriesIndex,
   description,
   url,
   tags,
@@ -75,6 +80,7 @@ const FeaturedCard: React.FunctionComponent<FeaturedCardProps> = ({
         <PostTitle className="post_title">
           <Link to={url}>{title}</Link>
         </PostTitle>
+
         {overlay == true ? (
           ''
         ) : (
@@ -90,9 +96,9 @@ const FeaturedCard: React.FunctionComponent<FeaturedCardProps> = ({
             )}
           </>
         )}
-
+        { seriesTitle ? <PostSubTitle>{seriesTitle} Series</PostSubTitle> : '' }
         <ReadMore className="read_more">
-          <Link to={url}>{overlay == true ? 'Read Story' : 'Read More'}</Link>
+          <Link to={url}>{overlay == true ? 'Read Post' : 'Read More'}</Link>
         </ReadMore>
       </PostDetails>
     </FeaturedCardWrapper>

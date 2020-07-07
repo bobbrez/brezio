@@ -36,6 +36,8 @@ const FeaturedPosts: React.FunctionComponent<FeaturedPostsProps> = () => {
             excerpt(pruneLength: 150)
             fields {
               slug
+              seriesTitle
+              seriesIndex
             }
             frontmatter {
               date(formatString: "MMM DD, YYYY")
@@ -60,7 +62,7 @@ const FeaturedPosts: React.FunctionComponent<FeaturedPostsProps> = () => {
 
   return (
     <FeaturedPostWrapper>
-      <SecTitle>Featured Stories</SecTitle>
+      <SecTitle>Featured Posts</SecTitle>
       <FeaturedPostRow>
         {Posts.map(({ node }: any) => {
           const title = node.frontmatter.title || node.fields.slug;
@@ -68,6 +70,8 @@ const FeaturedPosts: React.FunctionComponent<FeaturedPostsProps> = () => {
             <FeaturedPostCol key={title}>
               <FeaturedCard
                 title={title}
+                seriesTitle={node.fields.seriesTitle}
+                seriesIndex={node.fields.seriesIndex}
                 image={
                   node.frontmatter.cover == null
                     ? null

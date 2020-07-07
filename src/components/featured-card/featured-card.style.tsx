@@ -153,6 +153,34 @@ export const PostTitle = styled.h2`
   }
 `;
 
+export const PostSubTitle = styled.h2`
+  font-size: 16px;
+  font-weight: 700;
+  color: ${themeGet('colors.white', '#292929')};
+  margin-bottom: 10px;
+  a {
+    color: ${themeGet('colors.white', '#292929')};
+  }
+  @media (max-width: 1400px) {
+    font-size: 13px;
+  }
+  @media (max-width: 1024px) {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  @media (max-width: 575px) {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  @media (max-width: 990px) and (min-width: 768px) {
+    font-size: 11px;
+    max-height: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+`;
+
 export const PostTags = styled.div`
   display: flex;
   flex-wrap: wrap;

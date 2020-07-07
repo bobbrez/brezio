@@ -30,7 +30,7 @@ export const PostDetailsWrapper = styled.div`
         margin: 0;
       }
       .post_des {
-        margin-top: 60px;
+        margin-top: 20px;
       }
     }
   }
@@ -283,4 +283,11 @@ export const PostTags = styled.div`
     font-weight: 400;
     color: ${themeGet('primary', '#D10068')};
   }
+`;
+
+export const SeriesDescriptionWrapper = styled.div`
+  background: ${themeGet('inactiveColor', '#dbdbdb')};
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
 `;
