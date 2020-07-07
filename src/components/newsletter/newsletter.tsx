@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import addToMailchimp from 'gatsby-plugin-mailchimp';
 import Input from '../input/input';
 import Button from '../button/button';
 import {
@@ -22,23 +21,6 @@ const Newsletter: React.FunctionComponent<NewsletterProps> = ({ ...props }) => {
     setEmail(e.target.value);
   };
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    addToMailchimp(email) // listFields are optional if you are only capturing the email address.
-      .then(({ msg, result }: any) => {
-        if (result !== 'success') {
-          throw msg;
-        }
-        setSuccess(msg);
-        setError('');
-        setEmail('');
-      })
-      .catch((err: any) => {
-        setError(err);
-        setSuccess('');
-        setEmail('');
-      });
-  };
   return (
     <NewsletterWrapper {...props}>
       <NewsletterInnerWrapper>
@@ -49,7 +31,7 @@ const Newsletter: React.FunctionComponent<NewsletterProps> = ({ ...props }) => {
           Subscribe to get updated whenever something new comes along.
         </NewsletterDescription>
 
-        <NewsletterInputWrapper onSubmit={handleSubmit}>
+        <NewsletterInputWrapper onSubmit={console.log}>
           {success ? (
             <SuccessMessage>{success} 🙂</SuccessMessage>
           ) : (

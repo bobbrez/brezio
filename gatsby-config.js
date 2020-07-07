@@ -110,12 +110,6 @@ module.exports = {
       resolve: `gatsby-plugin-lodash`,
     },
     {
-      resolve: 'gatsby-plugin-mailchimp',
-      options: {
-        endpoint: '', // add your MC list endpoint here
-      },
-    },
-    {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
