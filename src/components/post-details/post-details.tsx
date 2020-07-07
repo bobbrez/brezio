@@ -15,13 +15,15 @@ import {
 
 type SeriesTitleProps = {
   title: string;
-  slug?: string;
+  slug: string;
+  index: number;
 };
 
 type PostDetailsProps = {
   title: string;
   seriesTitle?: string;
   seriesSlug?: string;
+  seriesIndex?: number;
   date?: string;
   preview?: any;
   description: any;
@@ -29,6 +31,8 @@ type PostDetailsProps = {
   className?: string;
   imagePosition?: 'left' | 'top';
 };
+
+const nth = (n) => ["st","nd","rd"][((n+90)%100-10)%10-1]||"th"
 
 const SeriesTitle: React.FunctionComponent<SeriesTitleProps> = ({
   title,
@@ -38,10 +42,23 @@ const SeriesTitle: React.FunctionComponent<SeriesTitleProps> = ({
   return <PostSubTitle><Link to={`/${slug}`}>{title} Series</Link></PostSubTitle>
 }
 
+const SeriesDescription: React.FunctionComponent<SeriesTitleProps> = ({
+  title,
+  slug,
+  index,
+}) => {
+  console.log("🦑 index", index);
+  if(!title) return <></>
+  if(index === 0) return <blockquote>This post is the start of the <Link to={`/${slug}`}>{title} Series</Link>.</blockquote>
+  return <blockquote>This post is {index}{nth(index)} in a the <Link to={`/${slug}`}>{title} Series</Link>. If you just landed here, it might be worthwhile checking out the series overview.</blockquote>
+}
+
+
 const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
   title,
   seriesTitle,
   seriesSlug,
+  seriesIndex,
   date,
   preview,
   description,
@@ -52,7 +69,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
 }) => {
   const addClass: string[] = ['post_details'];
 
-  console.log("🦑 seriesTitle", seriesSlug)
+  console.log("🦑 seriesIndex", seriesIndex)
 
   if (imagePosition == 'left') {
     addClass.push('image_left');
@@ -97,17 +114,19 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
       ) : (
         ''
       )}
+
       <PostDescriptionWrapper className="post_des_wrapper">
         {imagePosition == 'left' ? (
           <>
             <PostTitle>{title}</PostTitle>
-            <SeriesTitle title={seriesTitle} slug={seriesSlug} />
+            <SeriesTitle title={seriesTitle} slug={seriesSlug} index={seriesIndex} />
             <PostDate>{date}</PostDate>
           </>
         ) : (
           ''
         )}
-        <PostDescription
+        <SeriesDescription title={seriesTitle} slug={seriesSlug} index={seriesIndex} />
+        <PostDescription 
           dangerouslySetInnerHTML={{ __html: description }}
           className="post_des"
         />

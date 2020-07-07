@@ -1,6 +1,7 @@
 ---
 title: Building a Full Stack Product
 seriesTitle: Full Stack Product
+seriesIndex: 0
 seriesSlug: full-stack-product-00-building-a-full-stack-product
 seriesNext: full-stack-product-01-environment-setup
 date: '2020-06-24'
@@ -44,4 +45,6 @@ There is a lot more that can be read to understand how to write great user store
 
 # Series
 
-1. Starting App Development (Coming Soon)
+1. [Environment Setup](full-stack-product-01-environment-setup)
+2. [App Setup](full-stack-product-02-app-setup)
+3. Using a UI Kit (Coming Soon)

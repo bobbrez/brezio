@@ -1,9 +1,10 @@
 ---
 title: Environment Setup
 seriesTitle: Full Stack Product Series
+seriesIndex: 1
 seriesSlug: full-stack-product-00-building-a-full-stack-product
 seriesPrev: full-stack-product-00-building-a-full-stack-product
-date: '2020-06-24'
+date: '2020-06-25'
 description: A tutorial series on how to build a full stack product end-to-end with React Native and Serverless
 tags: ['react', 'js', 'tutorials', 'react native', 'serverless']
 cover: './preview.png'

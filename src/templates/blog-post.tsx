@@ -44,7 +44,6 @@ const BlogPostTemplate = (props: any) => {
     config: { identifier: slug, title },
   };
 
-  console.log("🦑 edges", edges)
   return (
     <Layout>
       <SEO
@@ -56,6 +55,7 @@ const BlogPostTemplate = (props: any) => {
           title={post.frontmatter.title}
           seriesTitle={post.fields.seriesTitle}
           seriesSlug={post.fields.seriesSlug}
+          seriesIndex={post.fields.seriesIndex}
           date={post.frontmatter.date}
           preview={
             post.frontmatter.cover == null
@@ -149,6 +149,7 @@ export const pageQuery = graphql`
         slug
         seriesTitle
         seriesSlug
+        seriesIndex
       }
       frontmatter {
         title
@@ -179,6 +180,7 @@ export const pageQuery = graphql`
             slug
             seriesTitle
             seriesSlug
+            seriesIndex
           }
           frontmatter {
             title
