@@ -57,15 +57,7 @@ const SeriesDescription: React.FunctionComponent<SeriesTitleProps> = ({
     contents = <>This post is {index}{nth(index)} in a the <Link to={`/${slug}`}>{title} Series</Link>. If you just landed here, it might be worthwhile checking out the series overview.</>
   }
   
-  return (
-    <SeriesDescriptionWrapper>
-      <blockquote>
-        {contents}
-      </blockquote>
-    </SeriesDescriptionWrapper>
-  );
-  
-  return <p><blockquote></blockquote></p>
+  return <SeriesDescriptionWrapper><blockquote>{contents}</blockquote></SeriesDescriptionWrapper>;
 }
 
 

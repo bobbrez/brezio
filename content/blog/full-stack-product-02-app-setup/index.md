@@ -15,11 +15,11 @@ _A quick aside_: A tremendous amount of time can, and probably should, be spent 
 
 ## Hello React Native
 
-Follow [Setting up the development environment](https://reactnative.dev/docs/environment-setup) from React Native to get your machine setup with local development. Since we're not looking to use any custom or native libraries off the start, the `Expo CLI Quickstart` should be a fine start. In a future tutorial we will be ejecting from Expo, but it is a good idea to start as simple as possible first.
+Follow [Setting up the development environment](https://reactnative.dev/docs/environment-setup) from React Native to get your machine setup with local development. Since we're not looking to use any custom or native libraries off the start, the `Expo CLI Quickstart` should be a fine start. In a future tutorial we will be ejecting from Expo, but it is a good idea to start as simple as possible first. Name this project `ReactNativeSpike` or similar. We will lay the foundation for Coach Me later in this section.
 
 When setting up the app with Expo for the first time, choose the `blank (TypeScript)` option.
 ```
-❯ expo init CoachMe
+❯ expo init ReactNativeSpike
 ? Choose a template:
   ----- Managed workflow -----
   blank                 a minimal app as clean as an empty canvas
@@ -49,10 +49,6 @@ The React Native project you generated has a lot under the hood. We will explore
 ### Android Simulator
 You will need to install Android Studio and do some setup. [Android emulator setup for expo on mac](https://nabendu.blog/posts/android-emulator-setup-for-expo-on-mac-4n1j/) is a good walkthough of what to do.
 
-## CheckIn
-
-Now that your app is working, this is a good spot to checkin your code. Initialize the project with Git and checkin what you have here.
-
 ## Edit, Test, Cycle
 
 Now that you have the app setup and running, here comes some of the magic of React Native. You can quickly make changes in your app and see them reflected. In the app you should see a message `Open up App.tsx to start working on your app!`. Follow that instruction, make a text change to say `Hello World` within the `<Text></Text>` blocks. Once you save your file, you should see the apps automatically refresh. If it does not update, check that you are running expo service in a terminal of your development machine.
@@ -61,11 +57,28 @@ Now that you have the app setup and running, here comes some of the magic of Rea
 
 Spend some time adding components to your app. They do not need to do anything at this point, they are just for show. Check out the React Native Docs on [Core Components and APIs](https://reactnative.dev/docs/components-and-apis) to get some inspiration.
 
-
-# Checkpoint
+## Checkpoint
 
 Before moving on, you should be able to:
 * [ ] Run the app in the iOS simulator 
 * [ ] Run the app in the Android simulator
-* [ ] Launch the app on a live device via the Expo app
-* [ ] Add a button, some more text, or an Alert to your app
+* [ ] Launch the app on a live device via the Expo spike app
+* [ ] Add a button, some more text, or an Alert to the spike app
+
+# Coach Me
+
+Now that you have gotten a chance to play with React Native a bit, it is time to start the Coach Me app. Generate a new React Native project similar to what you did above but give it the name `CoachMe`.
+
+## CheckIn
+
+Now that your app is working, this is a good spot to check-in your code. Generating the project, it automatically git initialized it, however you may notice that the `package-lock.json` has been updated after the initial commit. Add the updates and commit it.
+
+## Reference Product
+
+Take a look at the reference product [CoachMe-App @ 24b1882](https://github.com/bobbrez/CoachMe-App/tree/24b18828e202b70ce623b30863540f12e81da279) to see if you have something similar.
+
+# Checkpoint
+
+Before moving on, you should have:
+* [ ] The generated CoachMe app
+* [ ] The ability to run it in the iOS and Android simulators
