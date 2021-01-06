@@ -10,7 +10,7 @@
     "@types/styled-components": "^5.1.0",
     "@types/styled-system": "^5.1.9",
     "@types/styled-system__theme-get": "^5.0.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-plugin-styled-components": "^1.10.7",
     "core-js": "^2.6.5",
     "disqus-react": "^1.0.9",
